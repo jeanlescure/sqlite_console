@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <% if (data.length > 0){ _.each(data,function(item){ %>
+    <tr><th><%= item.table %></th></tr>
+    <tr>
+      <td>
+        <% if (item.data.length > 0){ %>
+          <table class="table table-bordered">
+            <tr>
+              <% _.each(item.columns,function(col){ %>
+                <th><%= col %></th>
+              <% }) %>
+            </tr>
+            <% _.each(item.data,function(row){ %>
+              <tr>
+                <% _.each(row,function(col){ %>
+                  <td><%= (col == null) ? 'NULL' : col %></td>
+                <% }) %>
+              </tr>
+            <% }) %>
+          </table>
+        <% }else{ %>
+          No data on table
+        <% } %>
+      </td>
+    </tr>
+  <% }); }else{ %>
+    <tr><th>No Tables Found</th></tr>
+  <% } %>
+</table>

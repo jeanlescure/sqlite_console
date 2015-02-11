@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+  <tr>
+    <% _.each(keys, function(col){ %>
+      <th><%= col %></th>
+    <% }) %>
+  </tr>
+  <% _.each(data, function(row){ %>
+    <tr>
+      <% _.each(row,function(col){ %>
+        <td><%= (col == null) ? 'NULL' : col %></td>
+      <% }) %>
+    </tr>
+  <% }) %>
+</table>
